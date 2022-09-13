@@ -28,5 +28,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.ZAKARIA_JOKE_APP}}
-          heroku_app_name: "Zakaria-joke-app"
+          heroku_app_name: "zakaria-joke-app"
           heroku_email: "attaouizakaria98@gmail.com"
