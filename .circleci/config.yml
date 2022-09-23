@@ -27,7 +27,8 @@ workflows:
             branches:
               only:
                 - circleci
-      - docker:
+
+      - docker/publish:
           docker:
             - image: cimg/node:lts
               auth:
