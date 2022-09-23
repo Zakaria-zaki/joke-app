@@ -2,8 +2,12 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.0.2
+  heroku: circleci/heroku@1.2.6
 
 workflows:
+  deploy:
+    executor: heroku/default
+
   node-test:
     jobs:
       - node/test:
@@ -25,3 +29,12 @@ workflows:
               only:
                 - circleci
 
+      - heroku/deploy-via-git:
+          app-name: joke-api-zak
+          requires:
+            - "node/test"
+            - "node/run"
+          filters:
+            branches:
+              only:
+                - circleci
