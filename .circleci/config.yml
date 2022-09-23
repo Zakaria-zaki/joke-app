@@ -5,8 +5,6 @@ orbs:
   heroku: circleci/heroku@1.2.6
 
 workflows:
-  deploy:
-    executor: heroku/default
 
   node-test:
     jobs:
