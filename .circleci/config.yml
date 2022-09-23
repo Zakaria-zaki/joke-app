@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.2
   heroku: circleci/heroku@1.2.6
+  docker: circleci/docker@2.1.4
 
 workflows:
 
@@ -26,6 +27,12 @@ workflows:
             branches:
               only:
                 - circleci
+      - docker/run:
+          docker:
+            - image: cimg/node:lts
+              auth:
+                username: zattaoui
+                password: $DOCKERHUB_PASSWORD
 
       - heroku/deploy-via-git:
           app-name: joke-api-zak
@@ -36,3 +43,4 @@ workflows:
             branches:
               only:
                 - circleci
+
