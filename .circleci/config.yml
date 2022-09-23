@@ -7,6 +7,12 @@ workflows:
   node-test:
     jobs:
       - node/test:
+          matrix:
+            parameters:
+              version:
+                - '12'
+                - '14'
+                - '16'
           filters:
             branches:
               only:
