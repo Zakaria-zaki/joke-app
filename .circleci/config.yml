@@ -28,13 +28,6 @@ workflows:
               only:
                 - circleci
 
-      - docker/publish:
-          docker:
-            - image: cimg/node:lts
-              auth:
-                username: zattaoui
-                password: $DOCKERHUB_PASSWORD
-
       - heroku/deploy-via-git:
           app-name: joke-api-zak
           requires:
@@ -44,4 +37,4 @@ workflows:
             branches:
               only:
                 - circleci
-
+      - 
